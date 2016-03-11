@@ -2,7 +2,6 @@
 
 # source the helper script
 APP_NAME=node
-VOLUMES=/app
 SLEEP_TIME=3
 load tests/docker_helper
 
