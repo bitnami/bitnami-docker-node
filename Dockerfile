@@ -1,4 +1,4 @@
-FROM gcr.io/stacksmith-images/ubuntu-buildpack:14.04
+FROM gcr.io/stacksmith-images/ubuntu-buildpack:14.04-r05
 MAINTAINER Bitnami <containers@bitnami.com>
 
 ENV BITNAMI_APP_NAME=node \
@@ -18,5 +18,5 @@ WORKDIR /app
 
 EXPOSE 3000
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/app-entrypoint.sh"]
 CMD ["node"]
