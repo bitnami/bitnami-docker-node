@@ -31,7 +31,7 @@ cleanup_environment
 @test "python installed" {
   container_create default -id
 
-  run container_exec default python -v
+  run container_exec default python --version
   [ "$status" = 0 ]
 }
 
