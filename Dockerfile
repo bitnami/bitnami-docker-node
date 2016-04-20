@@ -9,8 +9,6 @@ ENV BITNAMI_APP_NAME=node \
 RUN bitnami-pkg install $BITNAMI_APP_NAME-$BITNAMI_APP_VERSION --checksum $BITNAMI_APP_CHECKSUM
 ENV PATH=/opt/bitnami/python/bin:/opt/bitnami/$BITNAMI_APP_NAME/bin:/opt/bitnami/common/bin:$PATH
 
-WORKDIR /app
-
 # Exposing ports
 EXPOSE 3000
 

@@ -38,7 +38,7 @@ cleanup_environment
 @test "can install npm modules with system requirements" {
   container_create default -id
 
-  run container_exec default npm install pg-native bower
+  run container_exec default npm install bower
   [ "$status" = 0 ]
 }
 
@@ -50,7 +50,7 @@ cleanup_environment
 }
 
 @test "port 3000 exposed" {
-  container_create default -id
+  container_create default -id -w /app
 
   # create sample express app
   container_exec default sh -c "cat > /app/server.js <<EOF
