@@ -1,18 +1,12 @@
-FROM gcr.io/stacksmith-images/ubuntu-buildpack:14.04-r05
+FROM gcr.io/stacksmith-images/ubuntu-buildpack:14.04-r06
 MAINTAINER Bitnami <containers@bitnami.com>
 
-ENV BITNAMI_APP_NAME=node \
-    BITNAMI_APP_VERSION=5.10.1-0  \
-    BITNAMI_APP_CHECKSUM=c6ec28b7c9328aed677f8606d691a4aa6b5c0e708db8318ddedb78e3c78754b2
+ENV BITNAMI_IMAGE_VERSION=6.1.0-0-r0 \
+    BITNAMI_APP_NAME=node
 
-# Install application
-RUN bitnami-pkg install $BITNAMI_APP_NAME-$BITNAMI_APP_VERSION --checksum $BITNAMI_APP_CHECKSUM
+RUN bitnami-pkg install node-6.1.0-0 --checksum 849b47ee214fc31f03a307272ead252a2b778d8278137b955a039175cf6d571d
 ENV PATH=/opt/bitnami/python/bin:/opt/bitnami/$BITNAMI_APP_NAME/bin:/opt/bitnami/common/bin:$PATH
 
-# Exposing ports
-EXPOSE 3000
-
-# Setting entry point
-COPY rootfs/ /
-ENTRYPOINT ["/app-entrypoint.sh"]
 CMD ["node"]
+
+EXPOSE 3000
