@@ -50,7 +50,7 @@ cleanup_environment
 }
 
 @test "port 3000 exposed" {
-  container_create default -id -w /app
+  container_create default -id
 
   # create sample express app
   container_exec default sh -c "cat > /app/server.js <<EOF

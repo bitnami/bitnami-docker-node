@@ -9,4 +9,6 @@ ENV PATH=/opt/bitnami/python/bin:/opt/bitnami/$BITNAMI_APP_NAME/bin:/opt/bitnami
 
 CMD ["node"]
 
+WORKDIR /app
+
 EXPOSE 3000
