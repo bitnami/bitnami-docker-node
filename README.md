@@ -251,7 +251,7 @@ This image is tested for expected runtime behavior, using the [Bats](https://git
 bats test.sh
 ```
 
-# Changelog
+# Notable Changes
 
 ## 5.10.1-0 (2016-04-21)
 
