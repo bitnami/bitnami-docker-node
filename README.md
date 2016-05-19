@@ -255,9 +255,9 @@ bats test.sh
 
 # Notable Changes
 
-## 5.10.1-0 (2016-04-21)
+## 6.2.0-r0 (2016-05-11)
 
-- The `USER bitnami` instruction is removed from the `Dockerfile`. Commands are now executed as the `root` user by default.
+- Commands are now executed as the `root` user. Use the `--user` argument to switch to another user or change to the required user using `sudo` to launch applications. Alternatively, as of Docker 1.10 User Namespaces are supported by the docker daemon. Refer to the [daemon user namespace options](https://docs.docker.com/engine/reference/commandline/daemon/#daemon-user-namespace-options) for more details.
 
 ## 4.1.2-0 (2015-10-12)
 
