@@ -9,7 +9,7 @@
 # TLDR
 
 ```bash
-docker run -it --name -v /path/to/app:/app node bitnami/node npm start
+docker run -it --name node bitnami/node
 ```
 
 ## Docker Compose
