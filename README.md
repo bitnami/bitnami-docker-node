@@ -19,7 +19,7 @@ node:
   image: bitnami/node
   command: npm start
   volumes:
-    - /path/to/app:/app
+    - .:/app
 ```
 
 # Get this image
@@ -78,6 +78,8 @@ or using Docker Compose:
 node:
   image: bitnami/node
   command: "sh -c 'npm install && npm start'"
+  volumes:
+    - .:/app
 ```
 
 **Further Reading:**
@@ -177,7 +179,7 @@ node:
   image: bitnami/node
   command: node index.js
   volumes:
-    - /path/to/app:/app
+    - .:/app
 ```
 
 ### Step 3: Run the nginx image and link it to the Node.js server
