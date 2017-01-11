@@ -26,7 +26,7 @@ ENV STACKSMITH_STACK_ID="npx76xt" \
 RUN install_packages libc6 libssl1.0.0 libncurses5 libtinfo5 zlib1g libbz2-1.0 libreadline6 libstdc++6 libgcc1 ghostscript imagemagick libmysqlclient18
 
 # Install node
-RUN bitnami-pkg unpack node-7.3.0-0 --checksum 8eef9136355717b6718f36f2c34573c8a96fc2019ed8ba343a8cc65d327d3494
+RUN bitnami-pkg install node-7.3.0-0 --checksum 8eef9136355717b6718f36f2c34573c8a96fc2019ed8ba343a8cc65d327d3494
 
 COPY rootfs /
 
