@@ -8,24 +8,32 @@ items:
     creationTimestamp: null
     labels:
       io.kompose.service: node
-    name: node
+    name: node-svc
   spec:
     ports:
-    - name: "3000"
-      port: 3000
-      targetPort: 3000
+    - name: http
+      port: 80
+      targetPort: http
     selector:
       io.kompose.service: node
     type: NodePort
   status:
     loadBalancer: {}
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: node-configmap
+    labels:
+      io.kompose.service: node
+  data:
+    config.js: |-
 - apiVersion: extensions/v1beta1
   kind: Deployment
   metadata:
     annotations:
       kompose.service.type: nodeport
     creationTimestamp: null
-    name: node
+    name: node-deployment
   spec:
     replicas: 1
     strategy:
@@ -37,28 +45,52 @@ items:
           io.kompose.service: node
       spec:
         containers:
-        - image: bitnami/node:latest
+        - image: bitnami/node-example:0.0.1
           name: node
           ports:
           - containerPort: 3000
+            name: http
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+              httpHeaders:
+              - name: Host
+                value: app.example.com
+            initialDelaySeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+              httpHeaders:
+              - name: Host
+                value: app.example.com
+            initialDelaySeconds: 5
           resources: {}
-          tty: true
           volumeMounts:
-          - mountPath: /app
-            name: .
+          - mountPath: /app/config.js
+            name: node-config
+            subPath: config.js
+          - mountPath: /app/data
+            name: node-data
         restartPolicy: Always
         volumes:
-        - name: .
+        - name: node-config
+          configMap:
+            name: node-configmap
+        - name: node-data
           persistentVolumeClaim:
-            claimName: .
+            claimName: node-data-pvc
   status: {}
 - apiVersion: v1
   kind: PersistentVolumeClaim
   metadata:
+    annotations:
+      volume.alpha.kubernetes.io/storage-class: default
     creationTimestamp: null
     labels:
-      io.kompose.service: .
-    name: .
+      io.kompose.service: node
+    name: node-data-pvc
   spec:
     accessModes:
     - ReadWriteOnce
@@ -68,4 +100,3 @@ items:
   status: {}
 kind: List
 metadata: {}
-
