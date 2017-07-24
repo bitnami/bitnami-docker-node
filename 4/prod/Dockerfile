@@ -5,7 +5,6 @@ LABEL maintainer "Bitnami <container@bitnami.com>"
 
 RUN install_packages libssl1.0.0
 
-COPY --from=builder /root/.nami /root/.nami
 COPY --from=builder /opt/bitnami/node /opt/bitnami/node
 COPY --from=builder /opt/bitnami/python /opt/bitnami/python
 
