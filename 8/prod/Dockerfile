@@ -1,6 +1,7 @@
 FROM bitnami/node:8 as builder
 
 FROM bitnami/minideb:jessie
+
 LABEL maintainer "Bitnami <container@bitnami.com>"
 
 COPY --from=builder /opt/bitnami/node /opt/bitnami/node
