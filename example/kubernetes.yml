@@ -1,5 +1,22 @@
 apiVersion: v1
 items:
+- apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    labels:
+      app: example
+    name: example-ingress
+    annotations:
+  spec:
+    rules:
+      - host: app.example.com
+        http:
+          paths:
+            - path: /
+              backend:
+                serviceName: example-svc
+                servicePort: 80
+    tls:
 - apiVersion: v1
   kind: Service
   metadata:
@@ -13,7 +30,7 @@ items:
       targetPort: http
     selector:
       app: example
-    type: LoadBalancer
+    type: NodePort
   status:
     loadBalancer: {}
 - apiVersion: v1
