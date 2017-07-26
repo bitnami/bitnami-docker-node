@@ -1,11 +1,13 @@
-FROM bitnami/minideb-extras:jessie-r19-buildpack
+FROM bitnami/minideb:jessie
 LABEL maintainer "Bitnami <containers@bitnami.com>"
 
 # Install required system packages and dependencies
-RUN install_packages ghostscript imagemagick libbz2-1.0 libc6 libgcc1 libmysqlclient18 libncurses5 libreadline6 libsqlite3-0 libssl1.0.0 libstdc++6 libtinfo5 zlib1g
-RUN bitnami-pkg install node-8.2.1-0 --checksum 6e4c108b2484ff6d6215c180ab20986231154132b382b34ab1c86453dfea620a
+RUN install_packages curl ca-certificates build-essential git pkg-config unzip ghostscript imagemagick libbz2-1.0 libc6 libgcc1 libmysqlclient18 libncurses5 libreadline6 libsqlite3-0 libssl1.0.0 libstdc++6 libtinfo5 zlib1g
 
-COPY rootfs /
+RUN curl -#SLO https://downloads.bitnami.com/files/stacksmith/node-8.1.4-0-linux-x64-debian-8.tar.gz && \
+    echo "e2f26aa2199e9886b00d33c71798ef4249b0d4f6d9205bd6d8e98a5bf11b7d50  node-8.1.4-0-linux-x64-debian-8.tar.gz" | sha256sum -c - && \
+    tar -zxf node-8.1.4-0-linux-x64-debian-8.tar.gz -P --transform 's|^.*/files|/opt/bitnami|' --wildcards '*/files' && \
+    rm -rf node-8.1.4-0-linux-x64-debian-8.tar.gz
 
 ENV BITNAMI_APP_NAME="node" \
     BITNAMI_IMAGE_VERSION="8.2.1-r0" \
@@ -15,5 +17,5 @@ ENV BITNAMI_APP_NAME="node" \
 EXPOSE 3000
 
 WORKDIR /app
-ENTRYPOINT ["/app-entrypoint.sh"]
+
 CMD ["node"]

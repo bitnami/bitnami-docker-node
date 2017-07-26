@@ -41,10 +41,14 @@ $ kubectl create -f https://raw.githubusercontent.com/bitnami/bitnami-docker-nod
 
 # Supported tags and respective `Dockerfile` links
 
- - [`8`, `8.2.1-r0` (8/Dockerfile)](https://github.com/bitnami/bitnami-docker-node/blob/8.2.1-r0/8/Dockerfile)
- - [`7`, `7.10.1-r0` (7/Dockerfile)](https://github.com/bitnami/bitnami-docker-node/blob/7.10.1-r0/7/Dockerfile)
- - [`6`, `6.11.1-r0`, `latest` (6/Dockerfile)](https://github.com/bitnami/bitnami-docker-node/blob/6.11.1-r0/6/Dockerfile)
- - [`4`, `4.8.4-r0` (4/Dockerfile)](https://github.com/bitnami/bitnami-docker-node/blob/4.8.4-r0/4/Dockerfile)
+> __NOTE__
+>
+> Production images are tagged with the `-prod` suffix. These images are optimized for size and are ideal of production deployments.
+
+ - [`8`, `8.2.1-r0` (8/Dockerfile)](https://github.com/bitnami/bitnami-docker-node/blob/8.2.1-r0/8/Dockerfile), [`8-prod`, `8.2.1-r0-prod` (8/prod/Dockerfile)](https://github.com/bitnami/bitnami-docker-node/blob/8.2.1-r0/8/prod/Dockerfile)
+ - [`7`, `7.10.1-r0` (7/Dockerfile)](https://github.com/bitnami/bitnami-docker-node/blob/7.10.1-r0/7/Dockerfile), [`7-prod`, `7.10.1-r0-prod` (7/prod/Dockerfile)](https://github.com/bitnami/bitnami-docker-node/blob/7.10.1-r0/7/prod/Dockerfile)
+ - [`6`, `6.11.1-r0`, `latest` (6/Dockerfile)](https://github.com/bitnami/bitnami-docker-node/blob/6.11.1-r0/6/Dockerfile), [`6-prod`, `6.11.1-r0-prod`, `latest` (6/prod/Dockerfile)](https://github.com/bitnami/bitnami-docker-node/blob/6.11.1-r0/6/prod/Dockerfile)
+ - [`4`, `4.8.4-r0` (4/Dockerfile)](https://github.com/bitnami/bitnami-docker-node/blob/4.8.4-r0/4/Dockerfile), [`4-prod`, `4.8.4-r0-prod` (4/prod/Dockerfile)](https://github.com/bitnami/bitnami-docker-node/blob/4.8.4-r0/4/prod/Dockerfile)
 
 Subscribe to project updates by watching the [bitnami/node GitHub repo](https://github.com/bitnami/bitnami-docker-node).
 
