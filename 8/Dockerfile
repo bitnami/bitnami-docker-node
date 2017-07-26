@@ -6,7 +6,7 @@ RUN install_packages curl ca-certificates build-essential git pkg-config unzip g
 
 RUN curl -#SLO https://downloads.bitnami.com/files/stacksmith/node-8.1.4-0-linux-x64-debian-8.tar.gz && \
     echo "e2f26aa2199e9886b00d33c71798ef4249b0d4f6d9205bd6d8e98a5bf11b7d50  node-8.1.4-0-linux-x64-debian-8.tar.gz" | sha256sum -c - && \
-    tar -zxf node-8.1.4-0-linux-x64-debian-8.tar.gz --transform 's|^.*/files|/opt/bitnami|' --wildcards '*/files' && \
+    tar -zxf node-8.1.4-0-linux-x64-debian-8.tar.gz -P --transform 's|^.*/files|/opt/bitnami|' --wildcards '*/files' && \
     rm -rf node-8.1.4-0-linux-x64-debian-8.tar.gz
 
 ENV BITNAMI_APP_NAME="node" \
