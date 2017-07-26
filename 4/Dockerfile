@@ -6,7 +6,7 @@ RUN install_packages curl ca-certificates build-essential git pkg-config unzip g
 
 RUN mkdir -p /opt/bitnami
 
-RUN curl -sSLO https://downloads.bitnami.com/files/stacksmith/node-4.8.4-0-linux-x64-debian-8.tar.gz && \
+RUN curl -#SLO https://downloads.bitnami.com/files/stacksmith/node-4.8.4-0-linux-x64-debian-8.tar.gz && \
     echo "8efa0e5d8089757e5849c81b3245e9268d84bbafbd3444e00e011f6fbe88d85e  node-4.8.4-0-linux-x64-debian-8.tar.gz" | sha256sum -c - && \
     tar -zxf node-4.8.4-0-linux-x64-debian-8.tar.gz -C /opt/bitnami/ --strip 2 node-4.8.4-0-linux-x64-debian-8/files && \
     rm -rf node-4.8.4-0-linux-x64-debian-8.tar.gz
