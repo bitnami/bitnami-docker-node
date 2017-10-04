@@ -5,6 +5,7 @@ FROM bitnami/minideb:jessie
 LABEL maintainer "Bitnami <containers@bitnami.com>"
 
 COPY --from=development /opt/bitnami/node /opt/bitnami/node
+COPY --from=development /opt/bitnami/python /opt/bitnami/python
 
 ENV BITNAMI_APP_NAME="node" \
     BITNAMI_IMAGE_VERSION="4.8.4-r1" \
